@@ -19,7 +19,7 @@ Select S.St_Id [Student ID], ISNULL(CONCAT(S.St_Fname, ' ', S.St_Lname ), ' ') [
 From Student S, Department D
 WHERE S.Dept_Id = D.Dept_Id
 
--- 4.	Select instructor name and his salary but if there is no salary display value ë0000í . ìuse one of Null Functionî 
+-- 4.	Select instructor name and his salary but if there is no salary display value ‚Äò0000‚Äô . ‚Äúuse one of Null Function‚Äù 
 Select Ins_Name, ISNULL(Salary, 0) [Salary]
 From Instructor 
 
