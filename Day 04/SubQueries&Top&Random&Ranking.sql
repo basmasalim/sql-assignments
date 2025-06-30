@@ -65,7 +65,7 @@ WHERE EXISTS( SELECT * FROM Dependent D WHERE E.SSN = D.ESSN  )
 -- ============================ USE ITI ============================
 USE ITI;
 -- 9.	Write a query to select the highest two salaries in Each Department for instructors who have salaries.
-		--ìUsing one of Ranking Functionsî
+		--‚ÄúUsing one of Ranking Functions‚Äù
 SELECT *
 FROM (SELECT Salary, ROW_NUMBER() OVER (PARTITION BY D.Dept_Id  ORDER BY Salary DESC) [ROW_NUMBER]
 		FROM Instructor Ins JOIN Department D
@@ -73,7 +73,7 @@ FROM (SELECT Salary, ROW_NUMBER() OVER (PARTITION BY D.Dept_Id  ORDER BY Salary 
 		WHERE Salary IS NOT NULL ) [OrderSalary]
 WHERE ROW_NUMBER  IN (1,2)
 
--- 10.	 Write a query to select a random student from each department.  ìUsing one of Ranking Functionsî
+-- 10.	 Write a query to select a random student from each department.  ‚ÄúUsing one of Ranking Functions‚Äù
 SELECT *
 FROM (SELECT * , ROW_NUMBER() OVER(PARTITION BY S.Dept_Id ORDER BY NEWID()) [ROW_NUMBER]
 					FROM Student S
@@ -86,7 +86,7 @@ WHERE ROW_NUMBER = 1
 use AdventureWorks2012;
 
 -- 1.	Display the SalesOrderID, ShipDate of the SalesOrderHearder table (Sales schema) to designate SalesOrders
---		 that occurred within the period ë7/28/2002í and ë7/29/2014í
+--		 that occurred within the period ‚Äò7/28/2002‚Äô and ‚Äò7/29/2014‚Äô
 
 SELECT DISTINCT SO.SalesOrderID, SH.ShipDate
 FROM Sales.SalesOrderDetail SO JOIN Sales.SalesOrderHeader SH 
